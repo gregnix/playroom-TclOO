@@ -9,6 +9,8 @@ oowidgets::widget ::comp::LabEntry {
     constructor {path args} {
         # the main widget is the frame
         # add an additional label
+        # a dict with internal widget and option 1 (internal widget) 
+        # and option new (widget)
         set woptions {label {-text -labeltext}}
         my install ttk::frame $path -labeltext ""
         set lab [ttk::label $path.lab]
@@ -19,6 +21,7 @@ oowidgets::widget ::comp::LabEntry {
         my configure {*}$args
 
     }
+    # option new (widget) also changes option (internal widget)
     method configure {args} {
         set result [next {*}$args]
         foreach childw [dict keys $woptions] {
@@ -28,7 +31,7 @@ oowidgets::widget ::comp::LabEntry {
         }
         return $result
     }
-
+    # If the option is changed, the associated option is also changed
     method wconfigure {childw args} {
         my variable widgetOptions
         set dvar [dict get $woptions $childw]
