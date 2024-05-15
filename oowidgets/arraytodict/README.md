@@ -22,3 +22,6 @@ dict set widgetOptions $opt dbclass [string toupper [string range $opt 1 end] 0 
 dict set widgetOptions $opt stdvalue {}
 dict set widgetOptions $opt value [dict get $nopts $opt]
 ```
+
++ https://wiki.tcl-lang.org/page/TclOO+Properties
++ 
